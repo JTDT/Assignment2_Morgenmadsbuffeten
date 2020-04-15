@@ -23,6 +23,11 @@ namespace Assignment2_Morgenmadsbuffeten.Controllers
             return View();
         }
 
+        public IActionResult Kitchen()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
