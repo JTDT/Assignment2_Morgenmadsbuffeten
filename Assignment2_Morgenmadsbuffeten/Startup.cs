@@ -12,6 +12,10 @@ using Assignment2_Morgenmadsbuffeten.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Assignment2_Morgenmadsbuffeten.Data.Migrations;
+using Microsoft.Extensions.Logging;
+using Assignment2_Morgenmadsbuffeten.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace Assignment2_Morgenmadsbuffeten
 {
@@ -27,17 +31,35 @@ namespace Assignment2_Morgenmadsbuffeten
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddControllersWithViews();
-            services.AddRazorPages();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy(
+                    "IsReceptionist",
+                    policyBuilder => policyBuilder
+                     .RequireClaim("Reception"));
+            });
+
+            //services.AddControllersWithViews();
+            //services.AddRazorPages();
+
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<ApplicationUser> userManager, ApplicationDbContext context,
+            ILogger<Startup> log)
         {
             if (env.IsDevelopment())
             {
@@ -51,19 +73,35 @@ namespace Assignment2_Morgenmadsbuffeten
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                OnPrepareResponse = ctx =>
+                {
+                    ctx.Context.Response.Headers.Append("Cache-Control",
+                        "public,max-age=2419200");
+                }
+            });
 
             app.UseRouting();
-
+            app.UseCookiePolicy();
             app.UseAuthentication();
-            app.UseAuthorization();
+
+            DbHelper.SeedData(context, userManager, log);
+            //app.UseAuthorization();
+
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Home}/{action=Index}/{id?}");
+            //});
+
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers();
                 endpoints.MapRazorPages();
+
             });
         }
     }

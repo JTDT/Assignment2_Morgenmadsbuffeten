@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Assignment2_Morgenmadsbuffeten.Data;
 using Assignment2_Morgenmadsbuffeten.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Assignment2_Morgenmadsbuffeten.Controllers
 {
+    [Authorize("IsReceptionist")]
     public class ExpectedGuestController : Controller
     {
         private readonly ApplicationDbContext _context;

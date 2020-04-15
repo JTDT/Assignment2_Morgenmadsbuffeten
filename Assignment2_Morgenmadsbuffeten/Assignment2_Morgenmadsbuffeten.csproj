@@ -5,6 +5,11 @@
     <UserSecretsId>aspnet-Assignment2_Morgenmadsbuffeten-AEA71FB8-EF17-45E6-A295-8DCFCCB46444</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20200415145842_ApplicationUsers.cs" />
+    <Compile Remove="Data\Migrations\20200415145842_ApplicationUsers.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.1" />

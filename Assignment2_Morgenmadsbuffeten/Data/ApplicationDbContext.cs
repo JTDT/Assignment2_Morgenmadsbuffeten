@@ -13,6 +13,7 @@ namespace Assignment2_Morgenmadsbuffeten.Data
             : base(options) { }
         public DbSet<CheckedInGuest> CheckedInGuests { get; set; }
         public DbSet<ExpectedGuest> ExpectedGuests { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
     }
 }
