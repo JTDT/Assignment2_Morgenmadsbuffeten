@@ -11,13 +11,13 @@ namespace Assignment2_Morgenmadsbuffeten.Data
 {
     public class DbHelper
     {
-        public static void SeedData(ApplicationDbContext db, UserManager<ApplicationUser> userManager, ILogger log)
+        public static void SeedData(ApplicationDbContext db, UserManager<IdentityUser> userManager, ILogger log)
         {
 
             SeedUsers(userManager, log);
         }
 
-        private static void SeedUsers(UserManager<ApplicationUser> userManager, ILogger log)
+        private static void SeedUsers(UserManager<IdentityUser> userManager, ILogger log)
         {
             const string receptionEmail = "reception@localhost";
             const string receptionPassword = "Secret7/";
@@ -25,11 +25,11 @@ namespace Assignment2_Morgenmadsbuffeten.Data
             if (userManager.FindByNameAsync(receptionEmail).Result == null)
             {
                 log.LogWarning("Seeding the admin user");
-                var user = new ApplicationUser
+                var user = new IdentityUser()
                 {
                     UserName = receptionEmail,
                     Email = receptionEmail,
-                    Name = "Reception"
+                    //Name = "Reception"
                 };
                 IdentityResult result = userManager.CreateAsync
                     (user, receptionPassword).Result;
