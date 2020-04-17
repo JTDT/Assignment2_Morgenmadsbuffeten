@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Assignment2_Morgenmadsbuffeten.Controllers
 {
-    //[Authorize("IsWaiter")]
+    [Authorize("IsWaiter")]
     public class CheckedInGuestController : Controller
     {
         private readonly ApplicationDbContext _context;

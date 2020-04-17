@@ -35,15 +35,13 @@
                 </li>
             }
             <li><a asp-controller="CheckedInGuest" asp-action="Create">Restaurant</a></li>
-            @*@if (IsWaiter)
+            @if (IsWaiter)
             {
                 <li>
-                    <a asp-controller="CheckedInGuest" asp-action="Create">Checked in guests</a>
+                    <a asp-controller="CheckedInGuest" asp-action="Index">Checked in guests</a>
                 </li>
-            }*@
-            <li>
-                <a asp-controller="CheckedInGuest" asp-action="Index">Checked in guests</a>
-            </li>
+            }
+            
 
         </ul>
     </nav>

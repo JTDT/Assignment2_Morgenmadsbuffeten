@@ -37,7 +37,8 @@ namespace Assignment2_Morgenmadsbuffeten.Data
                 if (result.Succeeded)
                 {
                     var receptionClaim = new Claim("Reception", "Yes");
-                    userManager.AddClaimAsync(user, receptionClaim);
+                    userManager.AddClaimAsync(user, receptionClaim).Wait();
+                    
                 }
             }
 
@@ -58,7 +59,7 @@ namespace Assignment2_Morgenmadsbuffeten.Data
                 if (result.Succeeded)
                 {
                     var restaurantClaim = new Claim("Restaurant", "Yes");
-                    userManager.AddClaimAsync(user, restaurantClaim);
+                    userManager.AddClaimAsync(user, restaurantClaim).Wait();
                 }
             }
         }
