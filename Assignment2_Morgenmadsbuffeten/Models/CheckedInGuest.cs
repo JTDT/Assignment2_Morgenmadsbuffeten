@@ -15,7 +15,7 @@ namespace Assignment2_Morgenmadsbuffeten.Models
         [Required]
         public int RoomNumber { get; set; }
         [Required]
-        public int Adult { get; set; }
+        public int Adults { get; set; }
         //public IEnumerable<CheckedInGuest> Adults { get; set; }
         [Required]
         public int Children { get; set; }

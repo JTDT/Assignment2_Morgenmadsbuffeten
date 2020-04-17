@@ -26,7 +26,7 @@ namespace Assignment2_Morgenmadsbuffeten
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddAuthorization(options =>
@@ -35,6 +35,13 @@ namespace Assignment2_Morgenmadsbuffeten
                     "IsReceptionist",
                     policyBuilder => policyBuilder
                         .RequireClaim("Reception"));
+            });
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy(
+                    "IsWaiter",
+                    policyBuilder => policyBuilder
+                        .RequireClaim("Restaurant"));
             });
 
             services.AddControllersWithViews();

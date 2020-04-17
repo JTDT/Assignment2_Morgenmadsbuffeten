@@ -22,6 +22,7 @@ namespace Assignment2_Morgenmadsbuffeten.Data
             const string receptionEmail = "reception@localhost";
             const string receptionPassword = "Secret7/";
 
+
             if (userManager.FindByNameAsync(receptionEmail).Result == null)
             {
                 log.LogWarning("Seeding the admin user");
@@ -36,7 +37,29 @@ namespace Assignment2_Morgenmadsbuffeten.Data
                 if (result.Succeeded)
                 {
                     var receptionClaim = new Claim("Reception", "Yes");
-                    userManager.AddClaimAsync(user, receptionClaim);
+                    userManager.AddClaimAsync(user, receptionClaim).Wait();
+                    
+                }
+            }
+
+            const string restaurantEmail = "restaurant@localhost";
+            const string restaurantPassword = "Secret8/";
+
+            if (userManager.FindByNameAsync(restaurantEmail).Result == null)
+            {
+                log.LogWarning("Seeding the restaurant user");
+                var user = new IdentityUser()
+                {
+                    UserName = restaurantEmail,
+                    Email = restaurantPassword,
+                    
+                };
+                IdentityResult result = userManager.CreateAsync
+                    (user, restaurantPassword).Result;
+                if (result.Succeeded)
+                {
+                    var restaurantClaim = new Claim("Restaurant", "Yes");
+                    userManager.AddClaimAsync(user, restaurantClaim).Wait();
                 }
             }
         }
