@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment2_Morgenmadsbuffeten.Models
 {
+   
     public class CheckedInGuest
     {
         public long CheckedInGuestId { get; set; }
