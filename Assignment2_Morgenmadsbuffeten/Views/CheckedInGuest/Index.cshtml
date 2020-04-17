@@ -5,10 +5,9 @@
 }
 
 <h1>Restaurant</h1>
-<p>Fill out the form below to check guests in!</p>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Check guests in here!</a>
 </p>
 <table class="table">
     <thead>
@@ -20,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.RoomNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Adult)
+                @Html.DisplayNameFor(model => model.Adults)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Children)
@@ -38,7 +37,7 @@
                 @Html.DisplayFor(modelItem => item.RoomNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Adult)
+                @Html.DisplayFor(modelItem => item.Adults)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Children)

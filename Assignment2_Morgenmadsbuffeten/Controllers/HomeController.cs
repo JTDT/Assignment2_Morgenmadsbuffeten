@@ -60,7 +60,7 @@ namespace Assignment2_Morgenmadsbuffeten.Controllers
                 viewModel.CheckedInChildren = 0;
                 foreach (var guest in viewModel.CheckedInGuests )
                 {
-                    viewModel.CheckedInAdults += guest.Adult;
+                    viewModel.CheckedInAdults += guest.Adults;
                     viewModel.CheckedInChildren += guest.Children;
 
                 }
