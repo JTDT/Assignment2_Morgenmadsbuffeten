@@ -26,7 +26,7 @@ namespace Assignment2_Morgenmadsbuffeten.Data.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Adults")
+                    b.Property<int>("Adult")
                         .HasColumnType("int");
 
                     b.Property<int>("Children")
