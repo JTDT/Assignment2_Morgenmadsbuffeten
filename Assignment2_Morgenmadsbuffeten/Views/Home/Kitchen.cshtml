@@ -1,7 +1,59 @@
-﻿
+﻿@model GuestViewModel
+
 @{
     ViewData["Title"] = "Kitchen";
 }
 
 <h1>Kitchen</h1>
+
+<label for="Date">Choose a Date:</label>
+
+<input type="date" id="guestDate" name="guestDate" />
+<input type="submit" />
+<input type="reset" />
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th id="group">Group</th>
+            <th id="expected">Expected</th>
+            <th id="checkedIn">Checked in</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td headers="group">Adults</td>
+            <td headers="expected">
+                @Model.ExpectedAdults
+            </td>
+            <td headers="expected">
+                @Model.ExpectedAdults
+            </td>
+        </tr>
+        <tr>
+            <td headers="group">Children</td>
+            <td headers="expected">
+                @Model.ExpectedChildren
+            </td>
+            <td headers="expected">
+                @Model.CheckedInChildren
+            </td>
+        </tr>
+       
+            <tr>
+                
+                
+            </tr>
+
+        
+    </tbody>
+    <tfoot>
+        <tr>
+            <td headers="group">Total</td>
+        </tr>
+    </tfoot>
+</table>
+
+
 

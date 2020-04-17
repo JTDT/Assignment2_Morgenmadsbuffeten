@@ -15,7 +15,10 @@ namespace Assignment2_Morgenmadsbuffeten.Models
         public int RoomNumber { get; set; }
         [Required]
         public int Adults { get; set; }
+        //public IEnumerable<ExpectedGuest> Adults { get; set; }
+
         [Required]
         public int Children { get; set; }
+        //public IEnumerable<ExpectedGuest> Children { get; set; }
     }
 }
