@@ -1,6 +1,14 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+
+@{
+    var IsReceptionist = false;
+    if (User.HasClaim("Reception", "Yes"))
+    {
+        IsReceptionist = true;
+    }
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,10 +45,17 @@
         <ul>
             <li><a href="/Home/Index">Home</a></li>
             <li><a href="/Home/Kitchen">Kitchen</a></li>
-            @if (User.HasClaim("Reception", "Yes"))
-            {
-                <li><a asp-controller="ExpectedGuest" asp-action="Index">Reception</a></li>
 
+            @*@if (User.HasClaim("Reception", "Yes"))
+                {
+                    <li><a asp-controller="ExpectedGust" asp-action="Index">Reception</a></li>
+
+                }*@
+            @if (IsReceptionist)
+            {
+                <li>
+                    <a asp-controller="ExpectedGuest" asp-action="Create">Reception</a>
+                </li>
             }
 
             @if (SignInManager.IsSignedIn(User))

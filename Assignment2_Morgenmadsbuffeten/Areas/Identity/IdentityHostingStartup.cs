@@ -7,15 +7,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-[assembly: HostingStartup(typeof(Assignment2_Morgenmadsbuffeten.Areas.Identity.IdentityHostingStartup))]
-namespace Assignment2_Morgenmadsbuffeten.Areas.Identity
-{
-    public class IdentityHostingStartup : IHostingStartup
-    {
-        public void Configure(IWebHostBuilder builder)
-        {
-            builder.ConfigureServices((context, services) => {
-            });
-        }
-    }
-}
+//[assembly: HostingStartup(typeof(Assignment2_Morgenmadsbuffeten.Areas.Identity.IdentityHostingStartup))]
+//namespace Assignment2_Morgenmadsbuffeten.Areas.Identity
+//{
+//    public class IdentityHostingStartup : IHostingStartup
+//    {
+//        public void Configure(IWebHostBuilder builder)
+//        {
+//            builder.ConfigureServices((context, services) => {
+//            });
+//        }
+//    }
+//}

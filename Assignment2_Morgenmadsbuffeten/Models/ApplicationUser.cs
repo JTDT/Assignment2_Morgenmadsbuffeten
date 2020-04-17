@@ -8,8 +8,7 @@ using Microsoft.AspNetCore.Identity;
 namespace Assignment2_Morgenmadsbuffeten.Models
 {
     public class ApplicationUser : IdentityUser
-    {
-        [Required]
+    {        
         [PersonalData]
         public string Name { get; set; }
     }
