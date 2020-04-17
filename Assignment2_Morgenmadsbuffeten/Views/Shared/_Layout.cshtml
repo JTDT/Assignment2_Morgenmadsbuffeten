@@ -5,6 +5,14 @@
         IsReceptionist = true;
     }
 }
+
+@{
+    var IsWaiter = false;
+    if (User.HasClaim("Restaurant", "Yes"))
+    {
+        IsWaiter = true;
+    }
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,16 +23,22 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-<nav>
+    <nav>
         <ul>
             <li><a href="/Home/Index">Home</a></li>
             <li><a href="/Home/Kitchen">Kitchen</a></li>
             <li><a asp-controller="ExpectedGuest" asp-action="Index">Reception</a></li>
-
             @if (IsReceptionist)
             {
                 <li>
                     <a asp-controller="ExpectedGuest" asp-action="Create">Add guests</a>
+                </li>
+            }
+            <li><a asp-controller="CheckedInGuest" asp-action="Index">Restaurant</a></li>
+            @if (IsWaiter)
+            {
+                <li>
+                    <a asp-controller="CheckedInGuest" asp-action="Create">Checked in guests</a>
                 </li>
             }
 

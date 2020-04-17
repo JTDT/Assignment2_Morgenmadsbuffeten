@@ -36,6 +36,13 @@ namespace Assignment2_Morgenmadsbuffeten
                     policyBuilder => policyBuilder
                         .RequireClaim("Reception"));
             });
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy(
+                    "IsWaiter",
+                    policyBuilder => policyBuilder
+                        .RequireClaim("Restaurant"));
+            });
 
             services.AddControllersWithViews();
             services.AddRazorPages();
