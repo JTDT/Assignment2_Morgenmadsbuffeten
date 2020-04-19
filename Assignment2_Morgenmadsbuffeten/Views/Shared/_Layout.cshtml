@@ -21,11 +21,12 @@
     <title>@ViewData["Title"] - Assignment2_Morgenmadsbuffeten</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/thebreakfastbuffetmobile.css" media="only screen and (max-width: 480px)"/>
 </head>
 <body>
 <div id="wrapper">
     <header>
-        <h1 height="117" width="619">The Breakfast Buffet</h1>
+        <h1>The Breakfast Buffet</h1>
     </header>
     <nav>
         <ul>
@@ -38,11 +39,11 @@
                     <a asp-controller="ExpectedGuest" asp-action="Create">Add guests</a>
                 </li>
             }
-            <li><a asp-controller="CheckedInGuest" asp-action="Index">Restaurant</a></li>
+            <li><a asp-controller="CheckedInGuest" asp-action="Create">Restaurant</a></li>
             @if (IsWaiter)
             {
                 <li>
-                    <a asp-controller="CheckedInGuest" asp-action="Create">Check in guests</a>
+                    <a asp-controller="CheckedInGuest" asp-action="Index">Checked-In guests</a>
                 </li>
             }
         </ul>

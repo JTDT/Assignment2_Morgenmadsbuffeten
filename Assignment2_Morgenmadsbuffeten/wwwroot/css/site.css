@@ -118,7 +118,7 @@ img {
 }
 
 nav {
-    text-align: center;
+    text-align: left;
     float: left;
     width: 200px;
     padding-top: 30px;
@@ -126,7 +126,7 @@ nav {
 
 
 nav a {
-    text-align: right;
+    text-align: center;
     padding-bottom: 15px;
     text-decoration: none;
 }
@@ -146,8 +146,20 @@ nav ul {
     font-style: italic;
     text-align: center;
     padding: 5px 5px 5px 5px;
-
 }
+
+
+@media (max-width: 640px) {
+    .column {
+        float: none;
+    }
+}
+
+img {
+    width: auto;
+    height: auto;
+}
+
 
 
 
