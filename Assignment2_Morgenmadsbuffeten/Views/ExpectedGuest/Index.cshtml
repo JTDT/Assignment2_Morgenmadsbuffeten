@@ -31,28 +31,35 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoomNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Adults)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Children)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ExpectedGuestId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ExpectedGuestId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ExpectedGuestId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adults)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Children)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ExpectedGuestId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ExpectedGuestId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ExpectedGuestId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+@*<form align="right" name="form1" method="post" action="./includes/logout.inc.php">
+        <label class="logoutLabelPosition">
+            <input name="submit2" type="submit" id="submit2" value="log out">
+        </label>
+    </form>*@
+
 
 

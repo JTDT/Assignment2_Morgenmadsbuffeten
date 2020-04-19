@@ -72,5 +72,10 @@ body {
 tr:nth-of-type(odd) {
     color: cadetblue;
 }
+.logoutLabelPosition{
+    position:fixed;
+    right:10px;
+    top:5px; 
+}
 
 
