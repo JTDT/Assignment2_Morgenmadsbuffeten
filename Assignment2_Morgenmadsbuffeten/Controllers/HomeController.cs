@@ -39,8 +39,10 @@ namespace Assignment2_Morgenmadsbuffeten.Controllers
         }
 
         [AllowAnonymous]
-        public ActionResult Kitchen(DateTime date)
+        public ActionResult Kitchen()
         {
+            DateTime date = DateTime.Today;
+
             var viewModel = new GuestViewModel
             {
                 CheckedInGuests = _context.CheckedInGuests.ToList()

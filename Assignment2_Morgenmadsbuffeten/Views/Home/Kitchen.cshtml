@@ -28,7 +28,7 @@
                 @Model.ExpectedAdults
             </td>
             <td headers="expected">
-                @Model.ExpectedAdults
+                @Model.CheckedInAdults
             </td>
         </tr>
         <tr>
@@ -49,7 +49,13 @@
     <tfoot>
         <tr>
             <td headers="group">Total</td>
-            
+            <td headers="expected">
+                @Model.ExpectedChildren += @Model.ExpectedAdults;
+            </td>
+            <td headers="expected">
+                @Model.CheckedInChildren += @Model.CheckedInAdults;
+            </td>
+
         </tr>
     </tfoot>
 </table>
