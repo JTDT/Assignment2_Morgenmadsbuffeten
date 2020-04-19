@@ -23,6 +23,10 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
+<div id="wrapper">
+    <header>
+        <h1 height="117" width="619">The Breakfast Buffet</h1>
+    </header>
     <nav>
         <ul>
             <li><a href="/Home/Index">Home</a></li>
@@ -30,9 +34,9 @@
             <li><a asp-controller="ExpectedGuest" asp-action="Index">Reception</a></li>
             @if (IsReceptionist)
             {
-        <li>
-            <a asp-controller="ExpectedGuest" asp-action="Create">Add guests</a>
-        </li>
+                <li>
+                    <a asp-controller="ExpectedGuest" asp-action="Create">Add guests</a>
+                </li>
             }
             <li><a asp-controller="CheckedInGuest" asp-action="Index">Restaurant</a></li>
             @if (IsWaiter)
@@ -41,24 +45,26 @@
                     <a asp-controller="CheckedInGuest" asp-action="Create">Check in guests</a>
                 </li>
             }
-            
-
         </ul>
     </nav>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div>
+        <main id="content">
             @RenderBody()
         </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - Assignment2_Morgenmadsbuffeten - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div id="footer">
+            <small>
+                <i>
+                    Copyright &copy; 2020 The Breakfast Buffet<br/>
+                    <a href="mailto:TheBreakfastBuffet@live.com">TheBreakfastBuffet@live.com</a>
+                </i>
+            </small>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@RenderSection("Scripts", required: false)
 </body>
 </html>
