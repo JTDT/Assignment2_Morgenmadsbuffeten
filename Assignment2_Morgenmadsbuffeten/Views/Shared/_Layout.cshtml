@@ -19,18 +19,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Assignment2_Morgenmadsbuffeten</title>
-    <environment include="Development">
-        <link rel="stylesheet" href="~/css/site.css"/>
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
-    </environment>
-    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
 <div id="wrapper">
     <header>
-        <h1>Breakfast amazing</h1>
+        <h1 height="117" width="619">The Breakfast Buffet</h1>
     </header>
     <nav>
         <ul>
@@ -50,24 +45,22 @@
                     <a asp-controller="CheckedInGuest" asp-action="Create">Check in guests</a>
                 </li>
             }
-            
-
         </ul>
     </nav>
     <div>
         <main id="content">
             @RenderBody()
         </main>
-            
-        <footer>
-            Copyrigt &copy; 2020 Breakfast amazing <br/>
-            <a href="mailto:BreakfastAmazing@nowhere.com">BreakfastAmazing@nowhere.com</a>
-
-        </footer>
+        <div id="footer">
+            <small>
+                <i>
+                    Copyright &copy; 2020 The Breakfast Buffet<br/>
+                    <a href="mailto:TheBreakfastBuffet@live.com">TheBreakfastBuffet@live.com</a>
+                </i>
+            </small>
+        </div>
     </div>
 </div>
-
-
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -22,6 +22,7 @@ namespace Assignment2_Morgenmadsbuffeten.Controllers
         }
 
         // GET: CheckedInGuest
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             return View(await _context.CheckedInGuests.ToListAsync());
