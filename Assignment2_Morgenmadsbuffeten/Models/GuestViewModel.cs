@@ -14,6 +14,8 @@ namespace Assignment2_Morgenmadsbuffeten.Models
 
         public int CheckedInAdults { get; set; }
 
+        public DateTime GuestDate { get; set; }
+
         public IEnumerable<ExpectedGuest> ExpectedGuests { get; set; }
         
     }

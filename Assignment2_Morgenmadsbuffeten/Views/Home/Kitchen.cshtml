@@ -6,11 +6,13 @@
 
 <h3>Kitchen</h3>
 
-<label for="Date">Choose a Date:</label>
+<form method="get" asp-controller ="Home" asp-action="Kitchen">
+    <label for="Date">Choose a Date:</label>
 
-<input type="date" id="guestDate" name="guestDate" />
-<input type="submit" />
-<input type="reset" />
+    <input type="date" id="guestDate" name="guestDate" value="@Model.GuestDate.ToString("yyyy-MM-dd")"/>
+    <input type="submit" />
+    <input type="reset" />
+</form>
 
 
 <table class="table">
@@ -40,20 +42,19 @@
                 @Model.CheckedInChildren
             </td>
         </tr>
-    <tr>
+        <tr>
+        </tr>
 
-    </tr>
 
-        
     </tbody>
     <tfoot>
         <tr>
             <td headers="group">Total</td>
             <td headers="expected">
-                @Model.ExpectedChildren += @Model.ExpectedAdults;
+                @(Model.ExpectedChildren += Model.ExpectedAdults)
             </td>
             <td headers="expected">
-                @Model.CheckedInChildren += @Model.CheckedInAdults;
+                @(Model.CheckedInChildren += Model.CheckedInAdults)
             </td>
 
         </tr>
