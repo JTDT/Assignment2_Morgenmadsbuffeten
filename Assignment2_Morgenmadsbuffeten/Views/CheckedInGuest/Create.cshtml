@@ -2,11 +2,13 @@
 
 @{
     ViewData["Title"] = "Create";
+    var currentDateTime = DateTime.Today;
 }
 
 
-<h4>Restaurant</h4>
-<p>Fill out the form below to check guests in!</p>
+    <h4>Restaurant</h4>
+<p>Check guests into the restaurant here!</p>
+<p>Date: @currentDateTime</p>
 
 <hr />
 <div class="row">
@@ -14,10 +16,10 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" class="form-control" />
-                <span asp-validation-for="Date" class="text-danger"></span>
-            </div>
+                    <label asp-for="Date" class="control-label"></label>
+                    <input asp-for="Date" class="form-control"/>
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
             <div class="form-group">
                 <label asp-for="RoomNumber" class="control-label"></label>
                 <input asp-for="RoomNumber" class="form-control" />
