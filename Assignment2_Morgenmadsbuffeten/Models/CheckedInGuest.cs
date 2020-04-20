@@ -20,5 +20,6 @@ namespace Assignment2_Morgenmadsbuffeten.Models
         [Required]
         public int Children { get; set; }
         //public IEnumerable<CheckedInGuest> Children { get; set; }
+        //public IEnumerable<CheckedInGuest> CheckedInGuests { get; set; }
     }
 }
