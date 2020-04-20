@@ -78,3 +78,11 @@ footer {
 img {
     width: 90%;
 }
+
+button {
+    text-align: center;
+    background-color: cornflowerblue;
+    font-size: 10px;
+    margin: 0 auto;
+
+}
