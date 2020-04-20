@@ -38,12 +38,22 @@
                 <li>
                     <a asp-controller="ExpectedGuest" asp-action="Create">Add guests</a>
                 </li>
+                <li>
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
             }
             <li><a asp-controller="CheckedInGuest" asp-action="Create">Restaurant</a></li>
             @if (IsWaiter)
             {
                 <li>
                     <a asp-controller="CheckedInGuest" asp-action="Index">Checked-In guests</a>
+                </li>
+                <li>
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button type="submit">Logout</button>
+                    </form>
                 </li>
             }
         </ul>
