@@ -65,7 +65,7 @@ namespace Assignment2_Morgenmadsbuffeten.Controllers
 
            
                 viewModel.CheckedInGuests = viewModel.CheckedInGuests.Where
-                    (i => i.Date == guestDate).ToList();
+                    (i => i.Date.Day == guestDate.Day).ToList();
                 viewModel.CheckedInAdults = 0;
                 viewModel.CheckedInChildren = 0;
                 foreach (var guest in viewModel.CheckedInGuests )
@@ -79,7 +79,7 @@ namespace Assignment2_Morgenmadsbuffeten.Controllers
                 //    (i => i.Date == date).ToList().
 
                 viewModel.ExpectedGuests = viewModel.ExpectedGuests.Where
-                    (i => i.Date == guestDate).ToList();
+                    (i => i.Date.Day == guestDate.Day).ToList();
                 viewModel.ExpectedAdults = 0;
                 viewModel.ExpectedChildren = 0;
                 foreach (var guest in viewModel.ExpectedGuests)
