@@ -39,8 +39,16 @@ namespace Assignment2_Morgenmadsbuffeten.Controllers
         }
 
         [AllowAnonymous]
-        public ActionResult Kitchen(DateTime date)
+        public ActionResult Kitchen(DateTime guestDate)
         {
+            //DateTime date = DateTime.Today;
+            if (guestDate.Year == 1)
+            {
+                guestDate = DateTime.Today;
+            }
+
+            
+
             var viewModel = new GuestViewModel
             {
                 CheckedInGuests = _context.CheckedInGuests.ToList()
@@ -53,9 +61,11 @@ namespace Assignment2_Morgenmadsbuffeten.Controllers
                     //.OrderBy(i=> i.Date)
             };
 
+            viewModel.GuestDate = guestDate;
+
            
                 viewModel.CheckedInGuests = viewModel.CheckedInGuests.Where
-                    (i => i.Date == date).ToList();
+                    (i => i.Date == guestDate).ToList();
                 viewModel.CheckedInAdults = 0;
                 viewModel.CheckedInChildren = 0;
                 foreach (var guest in viewModel.CheckedInGuests )
@@ -69,7 +79,7 @@ namespace Assignment2_Morgenmadsbuffeten.Controllers
                 //    (i => i.Date == date).ToList().
 
                 viewModel.ExpectedGuests = viewModel.ExpectedGuests.Where
-                    (i => i.Date == date).ToList();
+                    (i => i.Date == guestDate).ToList();
                 viewModel.ExpectedAdults = 0;
                 viewModel.ExpectedChildren = 0;
                 foreach (var guest in viewModel.ExpectedGuests)

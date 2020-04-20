@@ -1,10 +1,9 @@
 ﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Assignment2_Morgenmadsbuffeten.Data.Migrations
+namespace Assignment2_Morgenmadsbuffeten.Migrations
 {
-    public partial class CreateIdentitySchema : Migration
+    public partial class @new : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,11 +47,43 @@ namespace Assignment2_Morgenmadsbuffeten.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CheckedInGuests",
+                columns: table => new
+                {
+                    CheckedInGuestId = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Date = table.Column<DateTime>(nullable: false),
+                    RoomNumber = table.Column<int>(nullable: false),
+                    Adults = table.Column<int>(nullable: false),
+                    Children = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CheckedInGuests", x => x.CheckedInGuestId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ExpectedGuests",
+                columns: table => new
+                {
+                    ExpectedGuestId = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Date = table.Column<DateTime>(nullable: false),
+                    RoomNumber = table.Column<int>(nullable: false),
+                    Adults = table.Column<int>(nullable: false),
+                    Children = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ExpectedGuests", x => x.ExpectedGuestId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     RoleId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -73,7 +104,7 @@ namespace Assignment2_Morgenmadsbuffeten.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -209,6 +240,12 @@ namespace Assignment2_Morgenmadsbuffeten.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "CheckedInGuests");
+
+            migrationBuilder.DropTable(
+                name: "ExpectedGuests");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
