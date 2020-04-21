@@ -13,8 +13,8 @@
             <label for="Date">Choose a date:</label>
 
             <input type="date" id="guestDate" name="guestDate" value="@Model.GuestDate.ToString("yyyy-MM-dd")" />
-            <input type="submit" />
-            <input type="reset" />
+            <input type="submit" value="Update"/>
+            <input type="reset" value="Reset"/>
         </form>
     </div>
 </div>
@@ -39,7 +39,7 @@
             </td>
         </tr>
         <tr>
-            < headers="group">Children</>
+            <th scope="row" headers="group">Children</th>
             <td headers="expected">
                 @Model.ExpectedChildren
             </td>

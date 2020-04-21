@@ -67,9 +67,7 @@ button.accept-policy {
 /*}*
 
 /*Nedestående kode er layoutændringer vi selv har lavet*/
-tr:nth-of-type(odd) {
-    color: cadetblue;
-}
+
 .logoutLabelPosition{
     position:fixed;
     right:10px;
