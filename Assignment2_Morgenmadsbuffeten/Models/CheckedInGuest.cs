@@ -16,10 +16,10 @@ namespace Assignment2_Morgenmadsbuffeten.Models
         public int RoomNumber { get; set; }
         [Required]
         public int Adults { get; set; }
-        //public IEnumerable<CheckedInGuest> Adults { get; set; }
+        //public IEnumerable<CheckedInGuest> AdultsTotal { get; set; }
         [Required]
         public int Children { get; set; }
-        //public IEnumerable<CheckedInGuest> Children { get; set; }
+        //public IEnumerable<CheckedInGuest> TotalChildren { get; set; }
         //public IEnumerable<CheckedInGuest> CheckedInGuests { get; set; }
     }
 }

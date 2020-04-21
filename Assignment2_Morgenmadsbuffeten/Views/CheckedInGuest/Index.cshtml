@@ -2,9 +2,11 @@
 
 @{
     ViewData["Title"] = "Index";
+    
 }
 
 <h3>Checked-In Guests</h3>
+<h4>@DateTime.Today.Date.ToString("dd-MM-yyyy")</h4>
 
 <p>
     <a asp-action="Create">Check guests in here!</a>
@@ -13,9 +15,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.RoomNumber)
             </th>
@@ -25,30 +25,34 @@
             <th>
                 @Html.DisplayNameFor(model => model.Children)
             </th>
+            <th>
+
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoomNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Adults)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Children)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CheckedInGuestId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CheckedInGuestId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CheckedInGuestId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adults)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Children)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CheckedInGuestId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CheckedInGuestId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CheckedInGuestId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
+    
+
 </table>
