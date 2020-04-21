@@ -25,19 +25,13 @@ namespace Assignment2_Morgenmadsbuffeten.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index(DateTime date)
         {
-           
-            if (date.Year == 1)
+            if(date.Year == 1)
             {
                 date = DateTime.Today;
             }
-           
 
             var checkedIn = (await _context.CheckedInGuests.ToListAsync()).Where(x => x.Date.Day == date.Day);
-           
-
-            return View(checkedIn);
-
-            
+            return View(checkedIn); 
         }
 
         // GET: CheckedInGuest/Details/5
