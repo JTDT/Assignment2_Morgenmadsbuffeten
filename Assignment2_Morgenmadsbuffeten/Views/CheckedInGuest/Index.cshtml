@@ -10,7 +10,8 @@
 
 <p>
     <a asp-action="Create">Check guests in here!</a>
-</p>
+    </p>
+
 
 <table class="table">
     <thead>
@@ -32,27 +33,27 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.RoomNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Adults)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Children)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.CheckedInGuestId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.CheckedInGuestId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.CheckedInGuestId">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-    
+    @foreach (var item in Model)
+    {
+        <tr>
 
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adults)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Children)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CheckedInGuestId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CheckedInGuestId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CheckedInGuestId">Delete</a>
+            </td>
+        </tr>
+    }
+            </tbody>
 </table>
+   
