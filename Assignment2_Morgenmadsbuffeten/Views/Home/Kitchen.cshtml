@@ -2,6 +2,10 @@
 
 @{
     ViewData["Title"] = "Kitchen";
+    
+    int totalCheckedin;
+    int totalExpected;
+    
 }
 
 
@@ -24,27 +28,34 @@
     <thead>
         <tr>
             <th scope="col" id="group">Group</th>
-            <th scope="col" id="expected">Expected</th>
+            <th scope="col" id="expected">Total guest expected</th>
             <th scope="col" id="checkedIn">Checked in</th>
+            <th scope="col" id="notCheckedIn">Not checked in</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <th scope="row" headers="group">Adults</th>
-            <td headers="expected">
+            <td>
                 @Model.ExpectedAdults
             </td>
-            <td headers="expected">
+            <td>
                 @Model.CheckedInAdults
+            </td>
+            <td>
+                @(Model.ExpectedAdults - Model.CheckedInAdults)
             </td>
         </tr>
         <tr>
             <th scope="row" headers="group">Children</th>
-            <td headers="expected">
+            <td >
                 @Model.ExpectedChildren
             </td>
-            <td headers="expected">
+            <td>
                 @Model.CheckedInChildren
+            </td>
+            <td>
+                @(Model.ExpectedChildren - Model.CheckedInChildren)
             </td>
         </tr>
         <tr>
@@ -55,11 +66,14 @@
     <tfoot>
         <tr>
             <td headers="group">Total</td>
-            <td headers="expected">
-                @(Model.ExpectedChildren += Model.ExpectedAdults)
+            <td >
+                @(totalExpected = Model.ExpectedChildren + Model.ExpectedAdults)
             </td>
-            <td headers="expected">
-                @(Model.CheckedInChildren += Model.CheckedInAdults)
+            <td >
+                @(totalCheckedin = Model.CheckedInChildren + Model.CheckedInAdults)
+            </td>
+            <td>
+                @(totalExpected - totalCheckedin)
             </td>
 
         </tr>
